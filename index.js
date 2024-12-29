@@ -32,6 +32,7 @@ res.status(201).json({ message: 'Data added successfully' });
 } 
 ); 
 }); 
+//test workflow
 // Endpoint to list all data 
 app.get('/list', (req, res) => { 
 db.all('SELECT * FROM data', (err, rows) => { 

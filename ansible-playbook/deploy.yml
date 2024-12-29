@@ -6,6 +6,6 @@
     - vars.yml
   tasks:
     - include_tasks: tasks/install.yml
-    - include_tasks: tasks/clone.yml
+      #    - include_tasks: tasks/clone.yml
     - include_tasks: tasks/run.yml
 

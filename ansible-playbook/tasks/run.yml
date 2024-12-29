@@ -1,8 +1,6 @@
 ---
 - name: Build and start Docker containers using Docker Compose
-  command: docker-compose -f "{{ repo_dest }}/docker-compose.yml" up -d
-  args:
-    chdir: "{{ repo_dest }}"
+  command: docker-compose -f "../docker-compose.yml" up -d
 
 - name: Ensure Docker Compose is installed
   command: docker-compose --version

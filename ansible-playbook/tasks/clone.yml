@@ -1,0 +1,16 @@
+---
+- name: Add GitHub to known_hosts
+  shell: ssh-keyscan github.com >> ~/.ssh/known_hosts
+  args:
+    creates: ~/.ssh/known_hosts
+
+
+- name: Clone Git repository
+  git:
+    repo: "{{ repo_url }}"
+    dest: "{{ repo_dest }}"
+    version: main  # Or specify the branch you want
+    key_file: "{{ git_ssh_key }}"
+    clone: yes
+    update: yes
+

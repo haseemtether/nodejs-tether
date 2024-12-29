@@ -1,0 +1,20 @@
+---
+- name: Install required packages (Docker, Docker Compose)
+  apt:
+    name:
+      - git
+      - docker.io
+      - docker-compose
+    state: present
+
+- name: Add user to Docker group
+  user:
+    name: azureuser  # Replace with your username
+    group: docker
+
+- name: Ensure Docker is running
+  service:
+    name: docker
+    state: started
+    enabled: yes
+

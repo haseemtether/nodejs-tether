@@ -1,0 +1,3 @@
+repo_url: "git@github.com:haseemtether/nodejs-tether.git"  # Replace with your repo URL
+repo_dest: "/home/azureuser/app"  # Replace with desired destination path
+git_ssh_key: "/home/azureuser/.ssh/id_rsa"  # Path to your private SSH key for Git

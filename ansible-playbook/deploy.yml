@@ -1,0 +1,11 @@
+---
+- name: Set up Dockerized Application on Ubuntu 24.04
+  hosts: localhost
+  become: true
+  vars_files:
+    - vars.yml
+  tasks:
+    - include_tasks: tasks/install.yml
+    - include_tasks: tasks/clone.yml
+    - include_tasks: tasks/run.yml
+

@@ -1,0 +1,11 @@
+# Caddyfile for serving static files
+
+:8080
+
+# Serve the public directory
+root * /srv/public
+file_server
+
+@restricted {
+    path /.*   # Denies hidden files and directories starting with "."
+}

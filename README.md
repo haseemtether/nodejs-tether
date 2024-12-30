@@ -28,8 +28,4 @@ Before you begin, ensure you have the following software installed:
 
 **Continuous Integration (CI) Workflow**
 The repository also includes a CI workflow. As soon as there is a push to the main or staging branches, a new image will automatically be pushed to the private container registry.
-
-### Key Points Covered:
-- **Prerequisites**: Instructions for installing Ansible and Git.
-- **Steps to Deploy**: Clear steps for cloning the repo, navigating directories, and running the playbook.
-- **CI Workflow**: Information about the automatic image push on branch changes (`main` or `staging`). 
+ 

@@ -1,7 +1,7 @@
 ---
 # Task: Build and start Docker containers using Docker Compose
 - name: Build and start Docker containers
-  command: docker-compose -f "{{ parent_dir }}../docker-compose.yml" up -d
+  command: docker-compose -f "../docker-compose.yml" up -d
   environment:
     DOCKER_HOST: unix:///var/run/docker.sock  # Ensure Docker socket is accessible
 

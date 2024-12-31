@@ -9,6 +9,8 @@
     - include_tasks: tasks/permission.yml
     - include_tasks: tasks/run.yml
 
-# Last step: Restart SSH session for the docker user
-- name: Restart SSH session for azureuser
-  shell: "pkill -u {{ docker_user }} || true"
+- name: Notify user to log out and log back in
+  debug:
+    msg: "Group membership changes have been made. Please log out and log back in to apply them."
+
+

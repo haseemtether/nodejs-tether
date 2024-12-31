@@ -33,5 +33,6 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: haseemsaeed1/nodejs-app:latest
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-app:${{ github.sha }}
 

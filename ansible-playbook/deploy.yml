@@ -6,6 +6,9 @@
     - vars.yml
   tasks:
     - include_tasks: tasks/install.yml
-    - include_tasks: tasks/permissions.yml
+    - include_tasks: tasks/permission.yml
     - include_tasks: tasks/run.yml
 
+# Last step: Restart SSH session for the docker user
+- name: Restart SSH session for azureuser
+  shell: "pkill -u {{ docker_user }} || true"

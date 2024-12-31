@@ -6,6 +6,7 @@
       - git
       - docker.io
       - docker-compose
+      - acl
     state: present
     update_cache: yes
 
@@ -15,6 +16,11 @@
     name: "{{ docker_user }}"
     groups: docker
     append: yes
+
+# Task: Refresh group membership for User
+- name: Refresh group membership for User
+  become_user: "{{ docker_user }}"
+  shell: "newgrp docker && exit"
 
 # Task: Ensure Docker is running
 - name: Ensure Docker is running

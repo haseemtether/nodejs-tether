@@ -1,10 +1,10 @@
-# nodejs-application
+# NodeStack-application
 
-NodeJS-Application is an automated deployment setup for a containerized Node.js application. It integrates Ansible for infrastructure provisioning, Docker for containerization, and GitHub Actions for a seamless CI/CD pipeline. The setup ensures efficient deployment and maintenance while adhering to best practices for security and scalability.
+NodeStack-application is an automated deployment setup for a containerized nodejs application. It integrates Ansible for infrastructure provisioning, Docker for containerization, and GitHub Actions for a seamless CI/CD pipeline. The setup ensures efficient deployment and maintenance while adhering to best practices for security and scalability.
 
 # Key Features
 
-Containerized Node.js Application:
+Containerized NodeStack Application:
 
 **Serves dynamic data through endpoints using SQLite.**
 
@@ -13,7 +13,7 @@ Reverse Proxy with Nginx:
 
 **Handles HTTP requests on port 80.**
 
-Routes / to the Node.js application.
+Routes / to the NodeStack application.
 Routes /public to a Caddy file server.
 Infrastructure as Code:
 

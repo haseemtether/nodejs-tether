@@ -26,7 +26,12 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # Step 4: Build and push the Docker image
+      # Step 4: Get the shortened commit hash
+      - name: Set commit short hash
+        id: commit_hash
+        run: echo "COMMIT_HASH=${GITHUB_SHA::7}" >> $GITHUB_ENV
+
+      # Step 5: Build and push the Docker image
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
@@ -34,5 +39,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/nodejs-app:${{ github.sha:0:5 }}
+            ${{ secrets.DOCKER_USERNAME }}/nodejs-app:${{ env.COMMIT_HASH }}
 

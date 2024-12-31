@@ -6,6 +6,8 @@
 root * /srv/public
 file_server
 
+# Restrict access to hidden files and directories
 @restricted {
-    path /.*   # Denies hidden files and directories starting with "."
+    path_regexp hidden_files ^/\.  # Denies hidden files and directories starting with "."
 }
+respond @restricted 403

@@ -7,10 +7,10 @@
   tasks:
     - include_tasks: tasks/install.yml
     - include_tasks: tasks/permission.yml
+    - include_tasks: tasks/datadir.yml
     - include_tasks: tasks/run.yml
-
-- name: Notify user to log out and log back in
-  debug:
-    msg: "Group membership changes have been made. Please log out and log back in to apply them."
+    - name: Notify user to log out and log back in
+      debug:
+        msg: "Group membership changes have been made. Please log out and log back in to apply them."
 
 

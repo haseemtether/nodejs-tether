@@ -9,6 +9,8 @@ services:
     command: sh -c "npm install && node index.js"  
     ports:
       - "3000:3000"  
+    volumes:
+      - "${DATA_DIR}/data.db:/usr/src/app/data.db"
     environment:
       - NODE_ENV=production  
     restart: always  

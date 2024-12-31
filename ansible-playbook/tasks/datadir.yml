@@ -1,0 +1,20 @@
+- name: Create a directory for the data.db file
+  hosts: localhost
+  tasks:
+    - name: Ensure directory for data.db exists
+      copy:
+        content: ""
+        dest: "/home/{{ docker_user }}/data/data.db" # Replace with your desired path
+        owner: {{ docker_user }}  
+        group: docker  
+        mode: '0644'
+
+- name: Extract the directory path
+      set_fact:
+        data_dir: "/home/{{ docker_user }}/data"
+
+    - name: Write DATA_DIR to .env file
+      lineinfile:
+        path: {{ parent_dir }}../.env  # Replace with your docker-compose directory path
+        line: "DATA_DIR={{ data_dir }}"
+        create: yes

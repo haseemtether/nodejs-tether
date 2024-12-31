@@ -1,22 +1,25 @@
 ---
 # Task: Install required packages (Docker, Docker Compose)
-- name: Install required packages (Docker, Docker Compose)
+- name: Install required packages
   apt:
     name:
-      - git  # Install Git
-      - docker.io  # Install Docker
-      - docker-compose  # Install Docker Compose
-    state: present  # Ensure the packages are present
+      - git
+      - docker.io
+      - docker-compose
+    state: present
+    update_cache: yes
 
 # Task: Add user to Docker group
 - name: Add user to Docker group
   user:
-    name: "{{ docker_user }}"  # Use variable for username
-    group: docker  # Add the user to the Docker group
+    name: "{{ docker_user }}"
+    groups: docker
+    append: yes
 
 # Task: Ensure Docker is running
 - name: Ensure Docker is running
   service:
-    name: docker  # Specify the Docker service
-    state: started  # Ensure the Docker service is started
-    enabled: yes  # Ensure the Docker service is enabled to start on boot
+    name: docker
+    state: started
+    enabled: yes
+

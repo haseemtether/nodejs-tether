@@ -1,0 +1,18 @@
+---
+# Task: Adjust ownership and permissions for deployment
+- name: Set ownership for Docker directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ docker_user }}"
+    group: docker
+    mode: '0755'
+  loop:
+    - /home/{{ docker_user }}/docker
+    - /home/{{ docker_user }}/public
+
+# Task: Ensure Docker volumes are accessible by the user
+- name: Adjust permissions for Docker volumes
+  command: setfacl -m u:{{ docker_user }}:rwX /var/lib/docker
+  become: true
+

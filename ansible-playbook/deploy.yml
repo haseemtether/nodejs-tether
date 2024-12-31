@@ -1,10 +1,11 @@
----
 # Playbook: Set up Dockerized Application on Ubuntu 24.04
 - name: Set up Dockerized Application on Ubuntu 24.04
-  hosts: localhost  # Target the localhost
-  become: true  # Run tasks with sudo privileges
+  hosts: localhost
+  become: true
   vars_files:
-    - vars.yml  # Include variables from vars.yml
+    - vars.yml
   tasks:
-    - include_tasks: tasks/install.yml  # Include tasks from install.yml
-    - include_tasks: tasks/run.yml  # Include tasks from run.yml
+    - include_tasks: tasks/install.yml
+    - include_tasks: tasks/permissions.yml
+    - include_tasks: tasks/run.yml
+

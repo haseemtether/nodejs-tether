@@ -1,15 +1,19 @@
 ---
 # Task: Build and start Docker containers using Docker Compose
-- name: Build and start Docker containers using Docker Compose
-  command: docker-compose -f "../docker-compose.yml" up -d  # Run Docker Compose to build and start containers in detached mode
+- name: Build and start Docker containers
+  command: docker-compose -f "docker-compose.yml" up -d
+  args:
+    chdir: "/home/{{ docker_user }}/docker"  # Use relative path to the compose file
+  environment:
+    DOCKER_HOST: unix:///var/run/docker.sock  # Ensure Docker socket is accessible
 
-# Task: Ensure Docker Compose is installed
-- name: Ensure Docker Compose is installed
-  command: docker-compose --version  # Check Docker Compose version
-  register: docker_compose_version  # Register the output of the command
-  failed_when: docker_compose_version.rc != 0  # Fail if Docker Compose is not installed
+# Task: Verify Docker Compose version
+- name: Check Docker Compose version
+  shell: docker-compose --version
+  register: docker_compose_version
+  failed_when: docker_compose_version.rc != 0
 
-# Task: Display Docker Compose version
 - name: Display Docker Compose version
   debug:
-    msg: "Docker Compose version: {{ docker_compose_version.stdout }}"  # Display the Docker Compose version
+    msg: "Docker Compose version: {{ docker_compose_version.stdout }}"
+

@@ -34,5 +34,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/nodejs-app:${{ github.sha }}
+            ${{ secrets.DOCKER_USERNAME }}/nodejs-app:${{ github.sha }}
 

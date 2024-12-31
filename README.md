@@ -33,7 +33,6 @@ View container logs.
 Start/stop containers.
 Trigger deployments or rollbacks.
 Backup and restore container volumes.
-Prevents access to sensitive data such as image contents and database.
 
 # Project README
 
@@ -49,7 +48,7 @@ Before you begin, ensure you have the following software installed:
 1. **Clone the Repository**:
    Clone the repository using the following command:
    
-   git clone <repo-url>
+   git clone https://github.com/haseemtether/nodejs-tether.git
 
 2. **Navigate to the Repository Directory**
    Change to the directory where the repository was cloned

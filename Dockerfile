@@ -9,11 +9,11 @@ COPY package*.json ./
 
 # Install dependencies and clean up apt cache
 RUN apt-get update && apt-get install -y \
-    python3 \  # Install Python 3
-    make \  # Install Make
-    g++ \  # Install G++
-    && npm install \  # Install npm dependencies
-    && rm -rf /var/lib/apt/lists/*  # Clean up apt cache
+    python3 \
+    make \  
+    g++ \  
+    && npm install \  
+    && rm -rf /var/lib/apt/lists/* 
 
 # Install npm dependencies
 RUN npm install

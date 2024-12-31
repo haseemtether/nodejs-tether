@@ -11,7 +11,7 @@
 # Task: Add user to Docker group
 - name: Add user to Docker group
   user:
-    name: azureuser  # Replace with your username
+    name: "{{ docker_user }}"  # Use variable for username
     group: docker  # Add the user to the Docker group
 
 # Task: Ensure Docker is running

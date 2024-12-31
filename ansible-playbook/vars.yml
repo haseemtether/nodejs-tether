@@ -1,1 +1,2 @@
-
+# Variable for Docker user
+docker_user: azureuser  # Replace with your username
